@@ -1,10 +1,10 @@
-package reflect
+package reflectutil
 
 import (
 	"reflect"
 	"testing"
 
-	"github.com/ntsd/go-utils/pkg/pointer"
+	"github.com/ntsd/go-utils/pkg/pointerutil"
 )
 
 type TestStruct struct {
@@ -30,9 +30,9 @@ func TestToMapString(t *testing.T) {
 			args: args{
 				in: TestStruct{
 					TestString:        "foo",
-					TestPointerString: pointer.ToString("bar"),
+					TestPointerString: pointerutil.ToString("bar"),
 					TestInt:           10,
-					TestPointerInt:    pointer.ToInt(15),
+					TestPointerInt:    pointerutil.ToInt(15),
 				},
 				tag: "form",
 			},
@@ -49,9 +49,9 @@ func TestToMapString(t *testing.T) {
 			args: args{
 				in: &TestStruct{
 					TestString:        "foo",
-					TestPointerString: pointer.ToString("bar"),
+					TestPointerString: pointerutil.ToString("bar"),
 					TestInt:           10,
-					TestPointerInt:    pointer.ToInt(15),
+					TestPointerInt:    pointerutil.ToInt(15),
 				},
 				tag: "form",
 			},
@@ -67,9 +67,9 @@ func TestToMapString(t *testing.T) {
 			name: "success without string",
 			args: args{
 				in: &TestStruct{
-					TestPointerString: pointer.ToString("bar"),
+					TestPointerString: pointerutil.ToString("bar"),
 					TestInt:           10,
-					TestPointerInt:    pointer.ToInt(15),
+					TestPointerInt:    pointerutil.ToInt(15),
 				},
 				tag: "form",
 			},
@@ -88,7 +88,7 @@ func TestToMapString(t *testing.T) {
 					TestString:        "foo",
 					TestPointerString: nil,
 					TestInt:           10,
-					TestPointerInt:    pointer.ToInt(15),
+					TestPointerInt:    pointerutil.ToInt(15),
 				},
 				tag: "form",
 			},
@@ -104,8 +104,8 @@ func TestToMapString(t *testing.T) {
 			args: args{
 				in: &TestStruct{
 					TestString:        "foo",
-					TestPointerString: pointer.ToString("bar"),
-					TestPointerInt:    pointer.ToInt(15),
+					TestPointerString: pointerutil.ToString("bar"),
+					TestPointerInt:    pointerutil.ToInt(15),
 				},
 				tag: "form",
 			},
@@ -122,7 +122,7 @@ func TestToMapString(t *testing.T) {
 			args: args{
 				in: &TestStruct{
 					TestString:        "foo",
-					TestPointerString: pointer.ToString("bar"),
+					TestPointerString: pointerutil.ToString("bar"),
 					TestInt:           10,
 					TestPointerInt:    nil,
 				},

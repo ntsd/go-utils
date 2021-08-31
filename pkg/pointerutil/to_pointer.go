@@ -1,4 +1,4 @@
-package pointer
+package pointerutil
 
 // ToString returns a pointer of string
 func ToString(s string) *string {
