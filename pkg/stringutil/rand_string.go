@@ -8,7 +8,7 @@ import (
 func RandStringNumber(length int) string {
 	b := make([]byte, length)
 	for i := range b {
-		b[i] = NUMBERS[rand.Int63()%int64(NUMBERS_LEN)]
+		b[i] = numberString[rand.Int63()%int64(numberStringLen)]
 	}
 	return string(b)
 }
@@ -17,7 +17,7 @@ func RandStringNumber(length int) string {
 func RandStringLetter(length int) string {
 	b := make([]byte, length)
 	for i := range b {
-		b[i] = LETTERS[rand.Int63()%int64(LETTERS_LEN)]
+		b[i] = letterString[rand.Int63()%int64(letterStringLen)]
 	}
 	return string(b)
 }
@@ -26,7 +26,7 @@ func RandStringLetter(length int) string {
 func RandStringUpperLetter(length int) string {
 	b := make([]byte, length)
 	for i := range b {
-		b[i] = UPPERCASE_LETTERS[rand.Int63()%int64(UPPERCASE_LETTERS_LEN)]
+		b[i] = upperCaseString[rand.Int63()%int64(upperCaseStringLen)]
 	}
 	return string(b)
 }
@@ -35,7 +35,7 @@ func RandStringUpperLetter(length int) string {
 func RandStringLowerLetter(length int) string {
 	b := make([]byte, length)
 	for i := range b {
-		b[i] = LOWERCASE_LETTERS[rand.Int63()%int64(LOWERCASE_LETTERS_LEN)]
+		b[i] = lowerCaseString[rand.Int63()%int64(lowerCaseStringLen)]
 	}
 	return string(b)
 }

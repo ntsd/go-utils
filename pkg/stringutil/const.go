@@ -1,13 +1,13 @@
 package stringutil
 
-const LOWERCASE_LETTERS string = "abcdefghijklmnopqrstuvwxyz"
-const LOWERCASE_LETTERS_LEN int = len(LOWERCASE_LETTERS)
+const lowerCaseString string = "abcdefghijklmnopqrstuvwxyz"
+const lowerCaseStringLen int = len(lowerCaseString)
 
-const UPPERCASE_LETTERS string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const UPPERCASE_LETTERS_LEN int = len(UPPERCASE_LETTERS)
+const upperCaseString string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const upperCaseStringLen int = len(upperCaseString)
 
-const LETTERS string = LOWERCASE_LETTERS + UPPERCASE_LETTERS
-const LETTERS_LEN int = len(LETTERS)
+const letterString string = lowerCaseString + upperCaseString
+const letterStringLen int = len(letterString)
 
-const NUMBERS string = "0123456789"
-const NUMBERS_LEN int = len(NUMBERS)
+const numberString string = "0123456789"
+const numberStringLen int = len(numberString)
