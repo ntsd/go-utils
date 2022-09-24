@@ -7,6 +7,7 @@ import (
 )
 
 // ToMapString converts a struct to a map using the struct tags.
+// ignore empty and `-` tag value
 func ToMapString(in interface{}, tag string) (map[string]string, error) {
 	out := make(map[string]string)
 
@@ -22,7 +23,7 @@ func ToMapString(in interface{}, tag string) (map[string]string, error) {
 	typ := v.Type()
 	for i := 0; i < v.NumField(); i++ {
 		fi := typ.Field(i)
-		if tagv := fi.Tag.Get(tag); tagv != "" {
+		if tagv := fi.Tag.Get(tag); tagv != "" && tagv != "-" {
 			h, _ := head(tagv, ",")
 			valueField := v.Field(i)
 

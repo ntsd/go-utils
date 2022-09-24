@@ -12,6 +12,8 @@ type TestStruct struct {
 	TestPointerString *string `form:"pointerString,required"`
 	TestInt           int     `form:"int"`
 	TestPointerInt    *int    `form:"pointerInt"`
+	TestDash          string  `form:"-"`
+	TestEmpty         string  `form:""`
 }
 
 func TestToMapString(t *testing.T) {
@@ -33,6 +35,8 @@ func TestToMapString(t *testing.T) {
 					TestPointerString: pointerutil.ToString("bar"),
 					TestInt:           10,
 					TestPointerInt:    pointerutil.ToInt(15),
+					TestDash:          "foo",
+					TestEmpty:         "bar",
 				},
 				tag: "form",
 			},
