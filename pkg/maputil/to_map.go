@@ -1,4 +1,4 @@
-package reflectutil
+package maputil
 
 import (
 	"fmt"
@@ -16,7 +16,7 @@ func ToMapString(in interface{}, tag string) (map[string]string, error) {
 	}
 
 	if v.Kind() != reflect.Struct {
-		return nil, fmt.Errorf("ToMapString only accepts struct; got %T", v)
+		return nil, fmt.Errorf("ToMapString only accepts struct, got %T", v)
 	}
 
 	typ := v.Type()
