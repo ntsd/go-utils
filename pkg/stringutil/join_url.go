@@ -1,4 +1,4 @@
-package httputil
+package stringutil
 
 import (
 	"fmt"

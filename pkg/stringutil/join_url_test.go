@@ -1,4 +1,4 @@
-package httputil
+package stringutil
 
 import (
 	"reflect"
@@ -7,26 +7,31 @@ import (
 
 func TestJoinURL(t *testing.T) {
 	tests := []struct {
+		name   string
 		base   string
 		paths  []string
 		result string
 	}{
 		{
+			name:   "join url",
 			base:   "http://example.com",
 			paths:  []string{"foo", "bar"},
 			result: "http://example.com/foo/bar",
 		},
 		{
+			name:   "join url with `/`",
 			base:   "http://example.com/",
 			paths:  []string{"foo/", "/bar"},
 			result: "http://example.com/foo/bar",
 		},
 		{
+			name:   "join url with `//`",
 			base:   "http://example.com/foo//",
 			paths:  []string{"//bar"},
 			result: "http://example.com/foo/bar",
 		},
 		{
+			name:   "join url with extension",
 			base:   "http://example.com/foo",
 			paths:  []string{"bar.go"},
 			result: "http://example.com/foo/bar.go",
@@ -34,10 +39,12 @@ func TestJoinURL(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		got := JoinURL(test.base, test.paths...)
+		t.Run(test.name, func(t *testing.T) {
+			got := JoinURL(test.base, test.paths...)
 
-		if !reflect.DeepEqual(got, test.result) {
-			t.Errorf("got %q, wanted %q", got, test.result)
-		}
+			if !reflect.DeepEqual(got, test.result) {
+				t.Fatalf("got %q, wanted %q", got, test.result)
+			}
+		})
 	}
 }

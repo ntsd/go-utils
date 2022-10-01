@@ -140,15 +140,14 @@ func TestToMapString(t *testing.T) {
 			wantErr: false,
 		},
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := ToMapString(tt.args.in, tt.args.tag)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ToMapString() error = %v, wantErr %v", err, tt.wantErr)
-				return
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			got, err := ToMapString(test.args.in, test.args.tag)
+			if (err != nil) != test.wantErr {
+				t.Fatalf("ToMapString() error = %v, wantErr %v", err, test.wantErr)
 			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("ToMapString() got = %v, want %v", got, tt.want)
+			if !reflect.DeepEqual(got, test.want) {
+				t.Fatalf("ToMapString() got = %v, want %v", got, test.want)
 			}
 		})
 	}
